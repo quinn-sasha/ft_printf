@@ -6,19 +6,20 @@
 #    By: squinn <squinn@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/07 17:28:47 by squinn            #+#    #+#              #
-#    Updated: 2025/07/07 19:46:58 by squinn           ###   ########.fr        #
+#    Updated: 2025/07/08 11:09:58 by squinn           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := libftprintf.a
 AR := ar
 CC := cc
-CFLAGS := -Wall -Wextra -Werror
+CFLAGS := -Wall -Wextra -Werror -I
 RM := rm -f
 RMDIR := rm -rf
 
 SRCDIR := src
 OBJDIR := obj
+INCLUDE := include
 LIBFTDIR := libft
 TEMPDIR := temp_dir
 
@@ -42,7 +43,7 @@ $(LIBFT):
 
 $(OBJDIR)/%.o: $(SRCDIR)%.c
 	mkdir -p $(OBJDIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 clean:
 	$(MAKE) -C $(LIBFTDIR) clean
