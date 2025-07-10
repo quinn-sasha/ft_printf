@@ -6,7 +6,7 @@
 /*   By: squinn <squinn@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 11:11:21 by squinn            #+#    #+#             */
-/*   Updated: 2025/07/10 15:40:21 by squinn           ###   ########.fr       */
+/*   Updated: 2025/07/10 19:08:29 by squinn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,10 @@ int print_by_conversion_type(int type, va_list args, char specifier)
 		return print_address(address);
 	}
 	if (type == INTEGER)
-	{}
+	{
+		int	num = va_arg(args, int);
+		return ft_putnbr(); // TODO
+	}
 	if (type == UNSIGNED_INTEGER)
 	{}
 	if (type == LOWER_HEX)
