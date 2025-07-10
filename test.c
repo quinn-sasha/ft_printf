@@ -3,7 +3,7 @@
 #ifdef TEST_FT_PRINTF
 
 #define TEST(...) \
-	result = TEST(__VA_ARGS__); \
+	result = ft_printf(__VA_ARGS__); \
 	printf("result: %d\n", result);
 
 #else // TEST_TEST
@@ -65,10 +65,13 @@ int main() {
 	TEST("%%");
 
 	// Error cases
-	// TEST();
-	// TEST('a');
-	// TEST("%");
-	// TEST("%d", 10, 10);
-	// TEST("%%%");
-	// TEST("%c", "a");
+	TEST();
+	TEST('a');
+	TEST("%");
+	TEST("%d", 10, 10);
+	TEST("%%%");
+	TEST("%c", "a");
+	TEST("%d", "abc");
+	TEST("%d");
+	TEST("%k%k");
 }
