@@ -6,7 +6,7 @@
 /*   By: squinn <squinn@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 11:11:21 by squinn            #+#    #+#             */
-/*   Updated: 2025/07/08 16:32:26 by squinn           ###   ########.fr       */
+/*   Updated: 2025/07/10 14:20:36 by squinn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,35 +35,56 @@ int	determine_conversion_type(char letter)
 	return (UNKNOWN_CONVERSION_TYPE);
 }
 
-print_by_conversion_type(int type, va_list args)
+int print_by_conversion_type(int type, va_list args, char specifier)
 {
-	int	num_bytes;
-
-	num_bytes = 0;
-	
-	return (num_bytes);
+	// TODO: 条件分岐してプリント、プリントしたバイト数を加算する
+	if (type == UNKNOWN_CONVERSION_TYPE)
+		return print_specifier(specifier);
+	if (type == LETTER)
+	{
+		char letter = va_arg(args, char);
+		return ft_putchar(letter);
+	}
+	if (type == STRING)
+	{
+		char *str = va_arg(args, char *);
+		return ft_putstr(str);
+	}
+	if (type == POINTER)
+	{
+		void *address = va_arg(args, void *);
+		
+	}
+	if (type == INTEGER)
+	{}
+	if (type == UNSIGNED_INTEGER)
+	{}
+	if (type == LOWER_HEX)
+	{}
+	if (type == UPPER_HEX)
+	{}
+	if (type == PERCENT)
 }
 
 int	ft_vprintf(const char *format, va_list args)
 {
 	int	result;
-	int	conversion;
+	int	type;
 
 	result = 0;
 	while (*format)
 	{
 		if (*format != '%')
 		{
-			ft_putchar_fd(*format, STDOUT);
-			result++;
+			result += ft_putchar(*format);
 			format++;
 			continue;
 		}
 		format++;
-		conversion = determine_conversion_type(*format);
-		if (conversion == SINGLE_PERCENT_ERROR)
+		type = determine_conversion_type(*format);
+		if (type == SINGLE_PERCENT_ERROR)
 			return (-1);
-		result += print_by_conversion_type();
+		result += print_by_conversion_type(type, args, *format);
 		format++;
 	}
 	return result;
