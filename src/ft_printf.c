@@ -6,7 +6,7 @@
 /*   By: squinn <squinn@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 11:11:21 by squinn            #+#    #+#             */
-/*   Updated: 2025/07/10 14:20:36 by squinn           ###   ########.fr       */
+/*   Updated: 2025/07/10 15:40:21 by squinn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int print_by_conversion_type(int type, va_list args, char specifier)
 	if (type == POINTER)
 	{
 		void *address = va_arg(args, void *);
-		
+		return print_address(address);
 	}
 	if (type == INTEGER)
 	{}
