@@ -6,7 +6,7 @@
 /*   By: squinn <squinn@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 11:11:21 by squinn            #+#    #+#             */
-/*   Updated: 2025/07/11 14:26:31 by squinn           ###   ########.fr       */
+/*   Updated: 2025/07/11 15:15:01 by squinn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int print_by_conversion_type(int type, va_list args, char specifier)
 	if (type == UNKNOWN_CONVERSION_TYPE)
 		return print_specifier(specifier);
 	if (type == LETTER)
-		return ft_putchar(va_arg(args, char));
+		return ft_putchar(va_arg(args, int));
 	if (type == STRING)
 		return ft_putstr(va_arg(args, char *));
 	if (type == POINTER)
