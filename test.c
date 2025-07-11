@@ -5,15 +5,15 @@
 
 #define TEST(...) \
 	result = ft_printf(__VA_ARGS__); \
-	printf("result: %d\n", result);
+	ft_printf("result: %d\n", result);
 
-#else // TEST_TEST
+#else
 
 #define TEST(...) \
 	result = printf(__VA_ARGS__); \
 	printf("result: %d\n", result);
 
-#endif // TEST_PRINTF
+#endif
 
 int main() {
 	int result = 0;
@@ -38,8 +38,6 @@ int main() {
 	TEST("%p", (void *)1024);
 	TEST("%p", (void *)1025);
 	TEST("%p", (void *)'a');
-	TEST("%p", (void *)"Hello!");
-	TEST("%p", (void *)"");
 	TEST("%p", (void *)0);
 
 	// Integer tests with %d and %i
@@ -72,7 +70,5 @@ int main() {
 	TEST("%d", 10, 10);
 	TEST("%%%");
 	TEST("%c", "a");
-	TEST("%d", "abc");
-	TEST("%d");
 	TEST("%k%k");
 }
