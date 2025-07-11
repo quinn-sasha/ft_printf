@@ -6,7 +6,7 @@
 #    By: squinn <squinn@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/11 14:49:54 by squinn            #+#    #+#              #
-#    Updated: 2025/07/11 15:49:03 by squinn           ###   ########.fr        #
+#    Updated: 2025/07/11 18:22:42 by squinn           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,9 +64,12 @@ re: fclean all
 .PHONY: all clean fclean re
 
 test: $(NAME)
-	gcc -Wno-format test.c $(NAME) -D TEST_FT_PRINTF -o test_ft_printf
-	gcc -Wno-format test.c -o test_printf
+	cc test.c $(NAME) -D TEST_FT_PRINTF -o test_ft_printf
+	cc test.c -o test_printf
 	./test_ft_printf > ft_printf_output.txt
 	./test_printf > printf_output.txt
 	diff --suppress-common-lines --text ft_printf_output.txt printf_output.txt
 	$(RM) test_ft_printf test_printf ft_printf_output.txt printf_output.txt
+
+test2: $(NAME)
+	cc test2.c $(NAME) -o test2
