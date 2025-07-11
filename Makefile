@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: squinn <squinn@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/07/07 17:28:47 by squinn            #+#    #+#              #
-#    Updated: 2025/07/08 11:09:58 by squinn           ###   ########.fr        #
+#    Created: 2025/07/11 14:49:54 by squinn            #+#    #+#              #
+#    Updated: 2025/07/11 15:49:03 by squinn           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,12 @@ INCLUDE := include
 LIBFTDIR := libft
 TEMPDIR := temp_dir
 
-SRCFILES := # TODO
+SRCFILES := ft_printf.c \
+            print_address.c \
+			printf_utils.c \
+			print_hexadecimal.c \
+			unsigned_itoa.c
+
 
 SRCS := $(addprefix $(SRCDIR)/, $(SRCFILES))
 OBJS := $(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
@@ -34,14 +39,15 @@ all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJS)
 	mkdir -p $(TEMPDIR)
+	cp $(LIBFT) $(TEMPDIR)
 	cd $(TEMPDIR) && $(AR) x ../$(LIBFT)
-	$(AR) rcs $(NAME) $(OBJS) $(TEMPDIR)/%.o
+	$(AR) rcs $@ $(OBJS) $(TEMPDIR)/*.o
 	$(RMDIR) $(TEMPDIR)
 
 $(LIBFT):
 	$(MAKE) -C $(LIBFTDIR)
 
-$(OBJDIR)/%.o: $(SRCDIR)%.c
+$(OBJDIR)/%.o: $(SRCDIR)/%.c
 	mkdir -p $(OBJDIR)
 	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
@@ -58,8 +64,8 @@ re: fclean all
 .PHONY: all clean fclean re
 
 test: $(NAME)
-	gcc test.c $(NAME) -D TEST_FT_PRINTF -o test_ft_printf
-	gcc test.c -o test_printf
+	gcc -Wno-format test.c $(NAME) -D TEST_FT_PRINTF -o test_ft_printf
+	gcc -Wno-format test.c -o test_printf
 	./test_ft_printf > ft_printf_output.txt
 	./test_printf > printf_output.txt
 	diff --suppress-common-lines --text ft_printf_output.txt printf_output.txt
