@@ -6,7 +6,7 @@
 /*   By: squinn <squinn@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 10:34:25 by squinn            #+#    #+#             */
-/*   Updated: 2025/07/11 13:47:06 by squinn           ###   ########.fr       */
+/*   Updated: 2025/07/11 14:29:32 by squinn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	determine_conversion_type(char letter);
 int	ft_putchar(char c);
 int	print_specifier(char specifier);
 int	ft_putstr(const char *str);
-int print_address(const void *addr);
+int print_address(const void *address);
 char *unsigned_itoa(unsigned long long num, unsigned int base);
 int	ft_putnbr(int num);
 int	print_unsigned_decimal(unsigned int n);
