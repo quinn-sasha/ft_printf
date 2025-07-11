@@ -12,16 +12,16 @@
 
 #include "../include/ft_printf.h"
 
-int print_address(const void *address)
+int	print_address(const void *address)
 {
-	char *buffer;
-	unsigned long long num;
-	int num_bytes;
+	char				*buffer;
+	unsigned long long	num;
+	int					num_bytes;
 
 	num = (unsigned long long)address;
 	buffer = unsigned_itoa(num, 16);
 	if (ft_strncmp(buffer, "0", 1) == 0)
-		return ft_putstr("(nil)");
+		return (ft_putstr("(nil)"));
 	num_bytes = 0;
 	num_bytes += ft_putstr("0x");
 	num_bytes += ft_putstr(buffer);

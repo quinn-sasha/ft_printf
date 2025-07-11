@@ -39,7 +39,7 @@ int	ft_putstr(const char *str)
 	int	num_bytes;
 
 	if (str == NULL)
-		return ft_putstr("(null)");
+		return (ft_putstr("(null)"));
 	num_bytes = 0;
 	while (*str)
 	{
@@ -55,25 +55,25 @@ int	ft_putnbr(int num)
 
 	num_bytes = 0;
 	if (num == -2147483648)
-		return ft_putstr("-2147483648");
+		return (ft_putstr("-2147483648"));
 	if (num < 0)
 	{
 		num = -num;
 		num_bytes += ft_putchar('-');
 	}
 	if (num < 10)
-		return ft_putchar(num + '0');
+		return (ft_putchar(num + '0'));
 	num_bytes += ft_putnbr(num / 10);
 	num_bytes += ft_putnbr(num % 10);
 	return (num_bytes);
 }
 
-int print_unsigned_decimal(unsigned int n)
+int	print_unsigned_decimal(unsigned int n)
 {
-	unsigned long long num;
-	char *buffer;
+	unsigned long long	num;
+	char				*buffer;
 
 	num = (unsigned long long)n;
 	buffer = unsigned_itoa(num, 10);
-	return ft_putstr(buffer);
+	return (ft_putstr(buffer));
 }

@@ -35,25 +35,25 @@ int	determine_conversion_type(char letter)
 	return (UNKNOWN_CONVERSION_TYPE);
 }
 
-int print_by_conversion_type(int type, va_list args, char specifier)
+int	print_by_conversion_type(int type, va_list args, char specifier)
 {
 	if (type == UNKNOWN_CONVERSION_TYPE)
-		return print_specifier(specifier);
+		return (print_specifier(specifier));
 	if (type == LETTER)
-		return ft_putchar(va_arg(args, int));
+		return (ft_putchar(va_arg(args, int)));
 	if (type == STRING)
-		return ft_putstr(va_arg(args, char *));
+		return (ft_putstr(va_arg(args, char *)));
 	if (type == POINTER)
-		return print_address(va_arg(args, void *));
+		return (print_address(va_arg(args, void *)));
 	if (type == INTEGER)
-		return ft_putnbr(va_arg(args, int));
+		return (ft_putnbr(va_arg(args, int)));
 	if (type == UNSIGNED_INTEGER)
-		return print_unsigned_decimal(va_arg(args, unsigned int));
+		return (print_unsigned_decimal(va_arg(args, unsigned int)));
 	if (type == LOWER_HEX)
-		return print_hexadecimal(va_arg(args, unsigned int), FALSE);
+		return (print_hexadecimal(va_arg(args, unsigned int), FALSE));
 	if (type == UPPER_HEX)
-		return print_hexadecimal(va_arg(args, unsigned int), TRUE);
-	return ft_putchar('%');
+		return (print_hexadecimal(va_arg(args, unsigned int), TRUE));
+	return (ft_putchar('%'));
 }
 
 int	ft_vprintf(const char *format, va_list args)
@@ -68,7 +68,7 @@ int	ft_vprintf(const char *format, va_list args)
 		{
 			result += ft_putchar(*format);
 			format++;
-			continue;
+			continue ;
 		}
 		format++;
 		type = determine_conversion_type(*format);
@@ -77,13 +77,13 @@ int	ft_vprintf(const char *format, va_list args)
 		result += print_by_conversion_type(type, args, *format);
 		format++;
 	}
-	return result;
+	return (result);
 }
 
-int ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
-	va_list args;
-	int result;
+	va_list	args;
+	int		result;
 
 	if (format == NULL)
 		return (-1);

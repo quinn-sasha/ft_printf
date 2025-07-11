@@ -12,11 +12,11 @@
 
 #include "../include/ft_printf.h"
 
-char *unsigned_itoa(unsigned long long num, unsigned int base)
+char	*unsigned_itoa(unsigned long long num, unsigned int base)
 {
-	static char buffer[MAX_ADDRESS_LENGTH + 1];
-	static char *symbols = "0123456789abcdef";
-	char *ptr;
+	static char	buffer[MAX_ADDRESS_LENGTH + 1];
+	static char	*symbols = "0123456789abcdef";
+	char		*ptr;
 
 	ptr = &buffer[MAX_ADDRESS_LENGTH];
 	*ptr = '\0';

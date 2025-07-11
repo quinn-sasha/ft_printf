@@ -14,9 +14,9 @@
 
 int	print_hexadecimal(unsigned int n, int is_upper)
 {
-	unsigned long long num;
-	char *buffer;
-	int i;
+	unsigned long long	num;
+	char				*buffer;
+	int					i;
 
 	num = (unsigned long long)n;
 	buffer = unsigned_itoa(num, 16);
@@ -29,5 +29,5 @@ int	print_hexadecimal(unsigned int n, int is_upper)
 			i++;
 		}
 	}
-	return ft_putstr(buffer);
+	return (ft_putstr(buffer));
 }
