@@ -6,7 +6,7 @@
 /*   By: squinn <squinn@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 10:34:25 by squinn            #+#    #+#             */
-/*   Updated: 2025/07/10 18:31:16 by squinn           ###   ########.fr       */
+/*   Updated: 2025/07/11 11:46:24 by squinn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,6 @@ int	print_specifier(char specifier);
 int	ft_putstr(const char *str);
 int print_address(const void *addr);
 char *unsigned_itoa(unsigned long long num, unsigned int base);
-
+int	ft_putnbr(int num);
 
 #endif
