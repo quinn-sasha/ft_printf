@@ -6,12 +6,12 @@
 /*   By: squinn <squinn@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 10:34:25 by squinn            #+#    #+#             */
-/*   Updated: 2025/07/11 14:29:32 by squinn           ###   ########.fr       */
+/*   Updated: 2025/07/11 18:30:51 by squinn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF
-# define FT_PRINTF
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include "../libft/libft.h"
 # include <stdarg.h>
@@ -30,17 +30,17 @@
 # define PERCENT 9
 # define UNKNOWN_CONVERSION_TYPE 10
 
-int ft_printf(const char *format, ...);
-int	ft_vprintf(const char *format, va_list args);
-int print_by_conversion_type(int type, va_list args, char specifier);
-int	determine_conversion_type(char letter);
-int	ft_putchar(char c);
-int	print_specifier(char specifier);
-int	ft_putstr(const char *str);
-int print_address(const void *address);
-char *unsigned_itoa(unsigned long long num, unsigned int base);
-int	ft_putnbr(int num);
-int	print_unsigned_decimal(unsigned int n);
-int	print_hexadecimal(unsigned int n, int is_upper);
+int		ft_printf(const char *format, ...);
+int		ft_vprintf(const char *format, va_list args);
+int		print_by_conversion_type(int type, va_list args, char specifier);
+int		determine_conversion_type(char letter);
+int		ft_putchar(char c);
+int		print_specifier(char specifier);
+int		ft_putstr(const char *str);
+int		print_address(const void *address);
+char	*unsigned_itoa(unsigned long long num, unsigned int base);
+int		ft_putnbr(int num);
+int		print_unsigned_decimal(unsigned int n);
+int		print_hexadecimal(unsigned int n, int is_upper);
 
 #endif
