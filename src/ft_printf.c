@@ -6,7 +6,7 @@
 /*   By: squinn <squinn@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 11:11:21 by squinn            #+#    #+#             */
-/*   Updated: 2025/07/11 11:52:19 by squinn           ###   ########.fr       */
+/*   Updated: 2025/07/11 13:42:39 by squinn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	determine_conversion_type(char letter)
 
 int print_by_conversion_type(int type, va_list args, char specifier)
 {
-	// TODO: 条件分岐してプリント、プリントしたバイト数を加算する
 	if (type == UNKNOWN_CONVERSION_TYPE)
 		return print_specifier(specifier);
 	if (type == LETTER)
@@ -61,9 +60,15 @@ int print_by_conversion_type(int type, va_list args, char specifier)
 		return ft_putnbr(num);
 	}
 	if (type == UNSIGNED_INTEGER)
-	{}
+	{
+		unsigned int num = va_arg(args, unsigned int);
+		return print_unsigned_decimal(num);
+	}
 	if (type == LOWER_HEX)
-	{}
+	{
+		// unsigned int num = va_arg(args, unsigned int);
+		// return print_hexadecimal(num);
+	}
 	if (type == UPPER_HEX)
 	{}
 	if (type == PERCENT)

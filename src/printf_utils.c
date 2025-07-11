@@ -6,7 +6,7 @@
 /*   By: squinn <squinn@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:35:08 by squinn            #+#    #+#             */
-/*   Updated: 2025/07/11 11:43:13 by squinn           ###   ########.fr       */
+/*   Updated: 2025/07/11 13:36:16 by squinn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,14 @@ int	ft_putnbr(int num)
 	num_bytes += ft_putnbr(num / 10);
 	num_bytes += ft_putnbr(num % 10);
 	return (num_bytes);
+}
+
+int print_unsigned_decimal(unsigned int n)
+{
+	unsigned long long num;
+	char *buffer;
+
+	num = (unsigned long long)n;
+	buffer = unsigned_itoa(num, 10);
+	return ft_putstr(buffer);
 }
