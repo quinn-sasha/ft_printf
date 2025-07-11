@@ -6,7 +6,7 @@
 /*   By: squinn <squinn@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 11:11:21 by squinn            #+#    #+#             */
-/*   Updated: 2025/07/11 13:54:55 by squinn           ###   ########.fr       */
+/*   Updated: 2025/07/11 14:26:31 by squinn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,44 +40,20 @@ int print_by_conversion_type(int type, va_list args, char specifier)
 	if (type == UNKNOWN_CONVERSION_TYPE)
 		return print_specifier(specifier);
 	if (type == LETTER)
-	{
-		char letter = va_arg(args, char);
-		return ft_putchar(letter);
-	}
+		return ft_putchar(va_arg(args, char));
 	if (type == STRING)
-	{
-		char *str = va_arg(args, char *);
-		return ft_putstr(str);
-	}
+		return ft_putstr(va_arg(args, char *));
 	if (type == POINTER)
-	{
-		void *address = va_arg(args, void *);
-		return print_address(address);
-	}
+		return print_address(va_arg(args, void *));
 	if (type == INTEGER)
-	{
-		int	num = va_arg(args, int);
-		return ft_putnbr(num);
-	}
+		return ft_putnbr(va_arg(args, int));
 	if (type == UNSIGNED_INTEGER)
-	{
-		unsigned int num = va_arg(args, unsigned int);
-		return print_unsigned_decimal(num);
-	}
+		return print_unsigned_decimal(va_arg(args, unsigned int));
 	if (type == LOWER_HEX)
-	{
-		unsigned int num = va_arg(args, unsigned int);
-		return print_hexadecimal(num, FALSE);
-	}
+		return print_hexadecimal(va_arg(args, unsigned int), FALSE);
 	if (type == UPPER_HEX)
-	{
-		unsigned int num = va_arg(args, unsigned int);
-		return print_hexadecimal(num, TRUE);
-	}
-	if (type == PERCENT)
-	{
-		// return ft_putchar('%');
-	}
+		return print_hexadecimal(va_arg(args, unsigned int), TRUE);
+	return ft_putchar('%');
 }
 
 int	ft_vprintf(const char *format, va_list args)
