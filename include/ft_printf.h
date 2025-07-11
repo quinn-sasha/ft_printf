@@ -6,7 +6,7 @@
 /*   By: squinn <squinn@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 10:34:25 by squinn            #+#    #+#             */
-/*   Updated: 2025/07/11 13:36:26 by squinn           ###   ########.fr       */
+/*   Updated: 2025/07/11 13:47:06 by squinn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ int print_address(const void *addr);
 char *unsigned_itoa(unsigned long long num, unsigned int base);
 int	ft_putnbr(int num);
 int	print_unsigned_decimal(unsigned int n);
+int	print_hexadecimal(unsigned int n, int is_upper);
 
 #endif
