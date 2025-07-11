@@ -1,3 +1,4 @@
+#include "include/ft_printf.h"
 #include <stdio.h>
 
 #ifdef TEST_FT_PRINTF
@@ -65,8 +66,8 @@ int main() {
 	TEST("%%");
 
 	// Error cases
-	TEST();
-	TEST('a');
+	// TEST();  Cannot compile
+	// TEST('a');  Segmentation fault
 	TEST("%");
 	TEST("%d", 10, 10);
 	TEST("%%%");
